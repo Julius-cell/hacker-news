@@ -9,7 +9,7 @@
 </div>
 
 <div class="body">
-  <div class="dropdown">
+  <div *ngIf="!favorites">
     <form [formGroup]="myForm">
       <select name="frameworks" id="frameworks" formControlName="framework" (change)="showData()">
         <option *ngFor="let framework of frameworks" [value]="framework.value">
@@ -19,7 +19,7 @@
     </form>
   </div>
 
-  <div class="boxes">
+  <div class="boxes" [ngClass]="{'space': favorites}">
     <div class="box">
       <div class="left">
         <div class="time">

@@ -9,6 +9,8 @@ import { HackerNewsService } from '../hacker-news.service';
 })
 export class HomeComponent implements OnInit {
 
+  public favorites: boolean;
+
   public frameworks: any[] = [
     { value: '', label: 'Select your news' },
     { value: 'angular', label: 'Angular' },
@@ -40,10 +42,12 @@ export class HomeComponent implements OnInit {
 
   showAll() {
     console.log('show All');
+    this.favorites = false;
   }
   
   showFavs() {
     console.log('show Favs');
+    this.favorites = true;
   }
 
 }

@@ -92,3 +92,6 @@ select {
   height: 22px;
   object-fit: contain;
 }
+.space {
+  margin-top: calc(37px + 29px + 37px);
+}
