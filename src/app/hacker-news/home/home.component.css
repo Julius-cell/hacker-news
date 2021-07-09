@@ -18,7 +18,7 @@ h1, .body {
   justify-content: center;
   align-items: center;
 }
-.selector {
+button {
   display: inherit;
   align-items: inherit;
   justify-content: inherit;
@@ -27,8 +27,14 @@ h1, .body {
   border-radius: 2px;
   border: solid 1px #d6d6d6;
 }
-.selector p {
-  font-weight: 500;
+button:hover {
+  border: solid 1px var(--color-11);
+  color: var(--color-11);
+}
+button:focus {
+  outline: 0;
+  border: solid 1px var(--color-11);
+  color: var(--color-11);
 }
 select {
   width: 240px;
