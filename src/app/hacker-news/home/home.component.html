@@ -4,8 +4,8 @@
 </div>
 
 <div class="wrap-selector">
-  <button (click)="showAll()">All</button>
-  <button (click)="showFavs()">My faves</button>
+  <button [ngClass]="{'pressed': !favorites}" (click)="showAll()">All</button>
+  <button [ngClass]="{'pressed': favorites}" (click)="showFavs()">My faves</button>
 </div>
 
 <div class="body">

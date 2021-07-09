@@ -31,9 +31,8 @@ button:hover {
   border: solid 1px var(--color-11);
   color: var(--color-11);
 }
-button:focus {
-  outline: 0;
-  border: solid 1px var(--color-11);
+.pressed, button:focus {
+  outline: solid 1px var(--color-11);
   color: var(--color-11);
 }
 select {
