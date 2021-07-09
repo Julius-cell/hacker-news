@@ -14,19 +14,10 @@
 
 <div class="body">
   <div class="dropdown">
-    <form>
-      <select name="frameworks" id="frameworks">
-        <option value="">
-          <p>Select your news</p>
-        </option>
-        <option value="angular">
-          <p>Angular</p>
-        </option>
-        <option value="reactjs">
-          <p>Reactjs</p>
-        </option>
-        <option value="vuejs">
-          <p>Vuejs</p>
+    <form [formGroup]="myForm">
+      <select name="frameworks" id="frameworks" formControlName="framework" (change)="showData()">
+        <option *ngFor="let framework of frameworks" [value]="framework.value">
+          <p>{{framework.label}}</p>
         </option>
       </select>
     </form>

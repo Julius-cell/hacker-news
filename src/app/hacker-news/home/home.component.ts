@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { HackerNewsService } from '../hacker-news.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public frameworks: any[] = [
+    { value: '', label: 'Select your news' },
+    { value: 'angular', label: 'Angular' },
+    { value: 'reactjs', label: 'Reactjs' },
+    { value: 'vuejs', label: 'Vuejs' },
+  ]
 
-  ngOnInit(): void {
+  public myForm = this.fb.group({
+    framework: ['']
+  })
+
+  constructor(private dataService: HackerNewsService,
+              private fb: FormBuilder) { }
+
+  ngOnInit(): void { }
+
+  getFrameworkNews(framework: string, page: number) {
+    this.dataService.getData(framework, page).subscribe(res => {
+      console.log(res);
+    })
+  }
+
+  showData() {
+    const framework = this.myForm.controls.framework.value;
+    if (framework) {
+      this.getFrameworkNews(framework, 1);
+    }
   }
 
 }
