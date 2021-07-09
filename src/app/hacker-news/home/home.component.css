@@ -1,0 +1,35 @@
+.title {
+  height: 114px;
+  box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
+  background-image: linear-gradient(to bottom, var(--color-10) -32%, var(--color-white) 124%);
+  padding-left: 150px;
+  display: flex;
+  align-items: center;
+}
+.wrap-selector {
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.selector {
+  display: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+  width: 98px;
+  height: 31px;
+  border-radius: 2px;
+  border: solid 1px #d6d6d6;
+}
+.selector p {
+  font-weight: 500;
+}
+.body {
+  padding-left: 150px;
+}
+select {
+  width: 240px;
+  padding: 5px 12px;
+  border-radius: 4px;
+  color: var(--color-8);
+}
