@@ -38,4 +38,12 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  showAll() {
+    console.log('show All');
+  }
+  
+  showFavs() {
+    console.log('show Favs');
+  }
+
 }
