@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --background-color: #fcfcfc;
+  --color-white: #ffffff;
+  --color-1: rgba(0, 0, 0, 0.65);
+  --color-2: #1890ff;
+  --color-3: #606060;
+  --color-4: #dd0031;
+  --color-5: #6b6b6b;
+  --color-6: #767676;
+  --color-7: #828282;
+  --color-8: #343434;
+  --color-9: #2e2e2e;
+  --color-10: #ececec;
+  --color-11: #1797ff;
+  --color-12: #3b3b3b;
+}
+
+html, body {
+  font-family: 'Poppins', sans-serif;
+}
+
+div,
+h1,
+h2,
+h3,
+ul,
+li,
+a,
+p  {
+  margin: 0;
+  padding: 0;
+}
