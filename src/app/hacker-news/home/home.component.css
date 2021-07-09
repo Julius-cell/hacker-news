@@ -1,10 +1,16 @@
-.title {
+.header {
   height: 114px;
   box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
   background-image: linear-gradient(to bottom, var(--color-10) -32%, var(--color-white) 124%);
-  padding-left: 150px;
   display: flex;
   align-items: center;
+  width: 100%;
+}
+h1, .body {
+  padding: 0 10%;
+}
+.body {
+  margin-top: 37px;
 }
 .wrap-selector {
   margin-top: 70px;
@@ -24,12 +30,59 @@
 .selector p {
   font-weight: 500;
 }
-.body {
-  padding-left: 150px;
-}
 select {
   width: 240px;
   padding: 5px 12px;
   border-radius: 4px;
   color: var(--color-8);
+}
+.boxes {
+  margin-top: 37px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: auto;
+  gap: 40px;
+}
+.box {
+  min-height: 90px;
+  /* opacity: 0.8; */
+  border-radius: 6px;
+  border: solid 1px #979797;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: auto 68px;
+  grid-template-areas: 
+  "left right";
+}
+.left  {
+  grid-area: left;
+  padding: 26px;
+}
+.time {
+  display: flex;
+  align-items: center;
+}
+.clock {
+  margin-right: 6px;
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+.comment {
+  margin-top: 7px;
+  font-weight: 500;
+}
+.right {
+  grid-area: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* opacity: 0.06; */
+  background-color: var(--color-3);
+  width: 68px;
+}
+.favorite {
+  width: 24px;
+  height: 22px;
+  object-fit: contain;
 }
