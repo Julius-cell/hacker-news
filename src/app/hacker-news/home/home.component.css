@@ -58,6 +58,7 @@ select {
   grid-template-columns: auto 68px;
   grid-template-areas: 
   "left right";
+  cursor: pointer;
 }
 .left  {
   grid-area: left;
@@ -93,4 +94,14 @@ select {
 }
 .space {
   margin-top: calc(37px + 29px + 37px);
+}
+.up {
+  position: fixed;
+  right: 20px;
+  bottom: 50px;
+  border-radius: 25px;
+  width: 50px;
+}
+.up:focus {
+  outline: none;
 }
