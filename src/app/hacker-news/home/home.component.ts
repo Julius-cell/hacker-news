@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { HackerNewsService } from '../hacker-news.service';
+import { LocalStorageService } from '../local-storage.service';
+import { New } from '../model/new';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +13,9 @@ import { HackerNewsService } from '../hacker-news.service';
 export class HomeComponent implements OnInit {
 
   public favorites: boolean;
+  public showButton: boolean;
+  public newsList: New[] = [];
+  public pageNum: number = 0;
 
   public frameworks: any[] = [
     { value: '', label: 'Select your news' },
@@ -23,31 +29,61 @@ export class HomeComponent implements OnInit {
   })
 
   constructor(private dataService: HackerNewsService,
-              private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    @Inject(DOCUMENT) private document: Document,
+    private localStorageSvc: LocalStorageService) { }
 
   ngOnInit(): void { }
 
-  getFrameworkNews(framework: string, page: number) {
-    this.dataService.getData(framework, page).subscribe(res => {
-      console.log(res);
-    })
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    const yOffset = window.pageYOffset;
+    const scrollTop = this.document.documentElement.scrollTop;
+    this.showButton = (yOffset || scrollTop) > 500;
+  }
+
+  onScrollTop() {
+    this.document.documentElement.scrollTop = 0;
+  }
+
+  onScrollDown() {
+    this.pageNum++;
+    const framework = this.myForm.controls.framework.value;
+    this.dataService.getNewsByPage(framework, this.pageNum).subscribe(res => {
+      const currentNews = this.newsList;
+      this.newsList = currentNews.concat(res);
+    });
   }
 
   showData() {
+    this.pageNum = 0;
     const framework = this.myForm.controls.framework.value;
     if (framework) {
-      this.getFrameworkNews(framework, 1);
+      this.dataService.getNewsByPage(framework, this.pageNum).subscribe(res => {
+        this.newsList = res;
+      })
     }
   }
 
   showAll() {
-    console.log('show All');
+    this.pageNum = 0;
+    this.newsList = [];
+    this.myForm.reset();
     this.favorites = false;
   }
-  
+
   showFavs() {
-    console.log('show Favs');
     this.favorites = true;
+    this.newsList = this.localStorageSvc.getFavoritesNews();
+  }
+
+  redirectToNews(url: string) {
+    window.open(url, "_blank");
+  }
+
+  addOrRemoveFavorite(newSelected: New) {
+    this.localStorageSvc.addOrRemoveFavorite(newSelected);
+    if (this.favorites) this.showFavs();
   }
 
 }
