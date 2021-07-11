@@ -17,7 +17,9 @@ export class HackerNewsService {
   getNewsByPage(framework: string, page: number): Observable<New[]> {
     const query = `search_by_date?query=${framework}&page=${page}`;
     return this.http.get<any>(`${this.base_url}${query}`).pipe(
-      map(({hits, ...rest}) => hits),
+      map(({hits, ...rest}) => {
+        return hits.filter((el: New) => el.story_title && el.story_url && el.author);
+      }),
     );
   }
 }
