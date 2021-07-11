@@ -21,6 +21,10 @@ html, body {
   width: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body,
 div,
 h1,
