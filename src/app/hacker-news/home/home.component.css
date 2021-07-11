@@ -6,7 +6,7 @@
   align-items: center;
   width: 100%;
 }
-h1, .body {
+.header img, .body {
   padding: 0 10%;
 }
 .body {
