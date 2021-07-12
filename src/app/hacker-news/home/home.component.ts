@@ -28,12 +28,21 @@ export class HomeComponent implements OnInit {
     framework: ['']
   })
 
-  constructor(private dataService: HackerNewsService,
+  constructor(private localStorageSvc: LocalStorageService,
+    private dataService: HackerNewsService,
     private fb: FormBuilder,
     @Inject(DOCUMENT) private document: Document,
-    private localStorageSvc: LocalStorageService) { }
+    ) { }
 
   ngOnInit(): void { }
+
+  toggleFavorite(news: any) {
+    news.isFavorite = !news.isFavorite;
+  }
+
+  getIcon(isFavorite: boolean): string {
+    return isFavorite ? 'heart-solid.png' : 'heart-outline.png';
+  }
 
   @HostListener('window:scroll')
   onWindowScroll() {
@@ -47,12 +56,14 @@ export class HomeComponent implements OnInit {
   }
 
   onScrollDown() {
-    this.pageNum++;
-    const framework = this.myForm.controls.framework.value;
-    this.dataService.getNewsByPage(framework, this.pageNum).subscribe(res => {
-      const currentNews = this.newsList;
-      this.newsList = currentNews.concat(res);
-    });
+    if (!this.favorites) {
+      this.pageNum++;
+      const framework = this.myForm.controls.framework.value;
+      this.dataService.getNewsByPage(framework, this.pageNum).subscribe(res => {
+        const currentNews = this.newsList;
+        this.newsList = currentNews.concat(res);
+      });
+    }
   }
 
   showData() {

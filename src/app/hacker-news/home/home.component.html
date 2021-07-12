@@ -29,8 +29,8 @@
           <p>{{news.story_title}}</p>
         </div>
       </div>
-      <div class="right" (click)="addOrRemoveFavorite(news)">
-        <img class="favorite" src="assets/images/iconmonstr-favorite-3.png">
+      <div class="right">
+        <img (click)="toggleFavorite(news); addOrRemoveFavorite(news)" class="favorite" src="assets/images/{{getIcon(news.isFavorite!)}}">
       </div>
     </div>
   </div>

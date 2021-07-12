@@ -15,6 +15,7 @@ export interface New {
   _tags:            string[];
   objectID:         string;
   _highlightResult: HighlightResult;
+  isFavorite?: boolean;
 }
 
 export interface HighlightResult {

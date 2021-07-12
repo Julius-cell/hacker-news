@@ -57,7 +57,6 @@ select {
   grid-template-columns: auto 68px;
   grid-template-areas: 
   "left right";
-  cursor: pointer;
 }
 .box:hover {
   opacity: 0.6;
@@ -65,6 +64,7 @@ select {
 .left  {
   grid-area: left;
   padding: 26px;
+  cursor: pointer;
 }
 .time {
   display: flex;
@@ -91,6 +91,7 @@ select {
   width: 24px;
   height: 22px;
   object-fit: contain;
+  cursor: pointer;
 }
 .space {
   margin-top: calc(37px + 29px + 37px);
