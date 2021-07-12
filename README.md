@@ -1,27 +1,55 @@
 # HackerNews
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
+**Version 1.0.0**
 
-## Development server
+This project is created in order to be able to apply to the Development Company [Reign](https://www.reign.cl/es/) 
+to show the skills and knowledge in the used technologies.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## Tecnologies & Libraries:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular
+- TypeScript
+- HTML / CSS
+- Infinite Scroll Package
+
+---
+
+## Run Server
+
+1. Clone or download the repo
+2. Run 'npm install'
+3. Run 'ng serve -o'
+
+---
+
+## Running tests
+
+- Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+---
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Learn More
 
-## Running end-to-end tests
+- To learn Angular, check out the [Angular documentation](https://angular.io/).
+- To learn how to use Infitite Scroll, check out the [Infinite Scroll documentation](https://www.npmjs.com/package/ngx-infinite-scroll).
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## Authors
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Julio Cid <julio.cid.b@gmail.com>.
+
+---
+
+## License & copyright
+
+Julio Cid, Frontend Developer.
