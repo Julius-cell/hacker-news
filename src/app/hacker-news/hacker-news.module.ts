@@ -5,11 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-
+import { DateAgoPipe } from '../shared/pipes/date-ago.pipe';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    DateAgoPipe
   ],
   imports: [
     CommonModule,

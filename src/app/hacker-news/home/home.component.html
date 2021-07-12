@@ -23,7 +23,7 @@
       <div class="left" (click)="redirectToNews(news.story_url)">
         <div class="time">
           <img class="clock" src="assets/images/iconmonstr-time-2.png">
-          <span>{{news.created_at}} by {{news.author}}</span>
+          <span>{{news.created_at | dateAgo}} by {{news.author}}</span>
         </div>
         <div class="comment">
           <p>{{news.story_title}}</p>
